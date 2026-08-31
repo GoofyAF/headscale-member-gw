@@ -1,7 +1,7 @@
 # Gitignore for the member gateway template.
-# .member-env.nix contains your private values (IPs, headscale URL, subnet) —
-# it must never be committed or shared.
+# This repo intentionally tracks .member-env.nix (placeholder values) so the
+# flake can evaluate. EDIT it in place with YOUR values — do not push real
+# values back upstream; keep them in your own fork/clone.
 
-.member-env.nix
 result
 /nix

@@ -36,7 +36,7 @@ lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file 0 0
 
 ### 2. Fill in your values
 
-Copy `.member-env.example.nix` to `.member-env.nix` and set:
+Edit `.member-env.nix` and set:
 
 | Variable          | What it is                                             |
 |-------------------|--------------------------------------------------------|
@@ -46,10 +46,14 @@ Copy `.member-env.example.nix` to `.member-env.nix` and set:
 | `headscaleUrl`    | The tailnet's Headscale server URL — **from your admin** |
 | `nodeHostname`    | A unique name for your node on the tailnet            |
 
-`.member-env.nix` is gitignored — it never leaves your machine.
+That file is tracked in this template **with placeholder values only** so the flake
+can evaluate. Edit it in place with your own values. Since you're deploying from
+*your* clone/fork, your real values stay on your machine — just don't push them
+back upstream.
 
-> **Security:** `headscaleUrl` and the pre-auth key are per-tailnet secrets. Do not
-> commit them anywhere. Keep `.member-env.nix` out of version control (already handled).
+> **Security:** `headscaleUrl` and the pre-auth key are per-tailnet secrets. Keep
+> `.member-env.nix` up to date only in your own clone; never contribute the real
+> values to the upstream repo.
 
 ### 3. Write the pre-auth key into the container
 
@@ -89,7 +93,7 @@ headscale nodes approve-routes -i <node-id> -r <your-subnet>
 
 ```
 configuration.nix       # the gateway NixOS config (imports .member-env.nix)
-.member-env.example.nix # template for YOUR values (gitignored when copied)
+.member-env.nix         # YOUR values (tracked as placeholders — edit in place)
 flake.nix               # nix flake definition
 flake.lock              # pinned inputs
 ```

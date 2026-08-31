@@ -9,7 +9,8 @@
 #   lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file 0 0
 #
 # ── Before deploying (see README) ─────────────────────────────────────────────
-# 1. cp .member-env.example.nix .member-env.nix  # fill in YOUR values
+# 1. Edit .member-env.nix  # fill in YOUR values (it's tracked with placeholders;
+#    keep them in your own fork/clone — never push real values upstream)
 # 2. Get a pre-auth key from your tailnet admin, and write it into the container:
 #      ssh admin@<your-lxc-ip> "sudo mkdir -p /run/secrets && sudo tee /run/secrets/tailscale-authkey"
 #
