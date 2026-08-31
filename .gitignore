@@ -1,0 +1,7 @@
+# Gitignore for the member gateway template.
+# .member-env.nix contains your private values (IPs, headscale URL, subnet) —
+# it must never be committed or shared.
+
+.member-env.nix
+result
+/nix
