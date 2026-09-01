@@ -1,7 +1,18 @@
-# Gitignore for the member gateway template.
-# This repo intentionally tracks .member-env.nix (placeholder values) so the
-# flake can evaluate. EDIT it in place with YOUR values — do not push real
-# values back upstream; keep them in your own fork/clone.
-
+# ── Nix / flake build artifacts ──────────────────────────────────────────────
 result
-/nix
+result-*
+/nix/store
+/nix/var
+
+# ── direnv (nix-direnv) ─────────────────────────────────────────────────────
+.direnv/
+.envrc
+
+# ── editor / OS cruft ────────────────────────────────────────────────────────
+*.swp
+*~
+.DS_Store
+
+# ── scratch / local only ─────────────────────────────────────────────────────
+*.bak
+*.tmp
